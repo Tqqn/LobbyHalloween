@@ -19,10 +19,12 @@ public class RandomSpawnTask extends BukkitRunnable {
 
     @Override
     public void run() {
+        if (!LobbyHalloween.getInstance().shouldLightningSpawn()) {
+            return;
+        }
         if (time == 0) {
             Random random = new Random();
             Location randomLocation = lightningLocations.get(random.nextInt(lightningLocations.size()));
-            if (randomLocation.getChunk().isLoaded()) {
                 if (LobbyHalloween.getInstance().getPluginConfig().getRangeMode()) {
                     Location randomL = randomLocation.clone();
                     int range = LobbyHalloween.getInstance().getPluginConfig().getLightningRange();
@@ -35,7 +37,6 @@ public class RandomSpawnTask extends BukkitRunnable {
                 }
                 CustomLightning customLightning = new CustomLightning(randomLocation);
                 customLightning.spawnLightning();
-            }
             time = 20;
         }
         time--;

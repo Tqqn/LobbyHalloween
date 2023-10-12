@@ -7,3 +7,11 @@ commands:
     description: Spawns a custom Lightning strike
     usage: /<command>
     permission: lobbyhalloween.lightning
+  scare:
+    description: Scares player.
+    usage: /<command>
+    permission: lobbyhalloween.scare
+  lightning:
+    description: Toggles lightning spawn.
+    usage: /<command>
+    permission: lobbyhalloween.toggle.lightning
