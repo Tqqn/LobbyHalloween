@@ -31,4 +31,8 @@ public final class LobbyHalloween extends JavaPlugin {
     public static LobbyHalloween getInstance() {
         return instance;
     }
+
+    public PluginConfig getPluginConfig() {
+        return pluginConfig;
+    }
 }

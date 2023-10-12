@@ -1,3 +1,8 @@
+range-mode: true
+range:
+bat-name:
+bat-color1:
+bat-color2:
 lightning:
   1:
     world:

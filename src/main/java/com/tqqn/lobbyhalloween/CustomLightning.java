@@ -1,12 +1,12 @@
 package com.tqqn.lobbyhalloween;
 
 import com.tqqn.lobbyhalloween.tasks.CustomBatsTask;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Bat;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,15 +21,23 @@ public class CustomLightning {
 
     public void spawnLightning() {
         location.getWorld().strikeLightningEffect(location);
-        location.getWorld().playSound(location, Sound.ENTITY_ENDERMAN_SCREAM, (float) 1, (float) 0.1);
+
+        for (Entity entity : location.getWorld().getNearbyEntities(location, 20, 20, 20)) {
+            if (entity instanceof Player) {
+                Player player = (Player) entity;
+                player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_SCREAM, (float) 1, (float) 0.1);
+            }
+        }
 
         Map<Entity, Boolean> bats = new HashMap<>();
 
+        location.add(0, 1, 0);
+
         for (int i = 0; i < 4; i++) {
             Bat bat = (Bat) location.getWorld().spawnEntity(location, EntityType.BAT);
-            bat.setCustomName(ChatColor.translateAlternateColorCodes('&', "&cEng!"));
             bat.setCustomNameVisible(true);
             bat.setInvulnerable(true);
+            bat.setGlowing(true);
             bats.put(bat, false);
         }
 

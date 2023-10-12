@@ -1,5 +1,6 @@
 package com.tqqn.lobbyhalloween.tasks;
 
+import com.tqqn.lobbyhalloween.LobbyHalloween;
 import org.bukkit.ChatColor;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
@@ -19,14 +20,13 @@ public class CustomBatsTask extends BukkitRunnable {
 
     @Override
     public void run() {
-
         for (Map.Entry<Entity, Boolean> entryEntitie : entities.entrySet()) {
             entryEntitie.getKey().getLocation().getWorld().spawnParticle(Particle.SMOKE_LARGE, entryEntitie.getKey().getLocation(), 2);
             if (entryEntitie.getValue()) {
-                entryEntitie.getKey().setCustomName(ChatColor.translateAlternateColorCodes('&', "&6Eng!"));
+                entryEntitie.getKey().setCustomName(ChatColor.translateAlternateColorCodes('&', LobbyHalloween.getInstance().getPluginConfig().getBatColor1() + LobbyHalloween.getInstance().getPluginConfig().getBatName()));
                 entryEntitie.setValue(false);
             } else {
-                entryEntitie.getKey().setCustomName(ChatColor.translateAlternateColorCodes('&', "&cEng!"));
+                entryEntitie.getKey().setCustomName(ChatColor.translateAlternateColorCodes('&', LobbyHalloween.getInstance().getPluginConfig().getBatColor2() + LobbyHalloween.getInstance().getPluginConfig().getBatName()));
                 entryEntitie.setValue(true);
             }
 
