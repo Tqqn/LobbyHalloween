@@ -1,5 +1,5 @@
 # Plugin - Halloween (Could be used for a lobby?)
-MC-Version: 1.16.x and above
+MC-Version: 1.16.4 (Wont work on other versions because of NMS.)
 ## Description:
 - This is a fun plugin that will randomly spawn lightning on the locations that are stated in the config.
   Lightning will spawn some spooky bats that will fly around and disappear after a while.
