@@ -4,14 +4,29 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LobbyHalloween extends JavaPlugin {
 
+    private static LobbyHalloween instance;
+    private PluginConfig pluginConfig;
+    private RandomSpawnTask randomSpawnTask;
+
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        instance = this;
+        pluginConfig = new PluginConfig(this);
+        this.getCommand("spawnlightning").setExecutor(new LightningSpawnCommand());
 
+        randomSpawnTask = new RandomSpawnTask(pluginConfig.getLightningSpawnLocations());
+        randomSpawnTask.runTaskTimer(this, 0, 20L);
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        instance = null;
+        pluginConfig = null;
+        randomSpawnTask.cancel();
+        randomSpawnTask = null;
+    }
+
+    public static LobbyHalloween getInstance() {
+        return instance;
     }
 }

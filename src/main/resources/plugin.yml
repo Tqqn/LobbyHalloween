@@ -2,3 +2,8 @@ name: LobbyHalloween
 version: '${project.version}'
 main: com.tqqn.lobbyhalloween.LobbyHalloween
 api-version: 1.16
+commands:
+  spawnlightning:
+    description: Spawns a custom Lightning strike
+    usage: /<command>
+    permission: lobbyhalloween.lightning
