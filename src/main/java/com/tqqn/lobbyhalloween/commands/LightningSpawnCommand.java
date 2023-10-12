@@ -1,5 +1,6 @@
-package com.tqqn.lobbyhalloween;
+package com.tqqn.lobbyhalloween.commands;
 
+import com.tqqn.lobbyhalloween.CustomLightning;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

@@ -1,4 +1,4 @@
-package com.tqqn.lobbyhalloween;
+package com.tqqn.lobbyhalloween.tasks;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Particle;

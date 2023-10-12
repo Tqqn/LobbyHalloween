@@ -1,5 +1,6 @@
-package com.tqqn.lobbyhalloween;
+package com.tqqn.lobbyhalloween.tasks;
 
+import com.tqqn.lobbyhalloween.CustomLightning;
 import org.bukkit.Location;
 import org.bukkit.scheduler.BukkitRunnable;
 

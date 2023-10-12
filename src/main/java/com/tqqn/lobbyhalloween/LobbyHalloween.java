@@ -1,5 +1,7 @@
 package com.tqqn.lobbyhalloween;
 
+import com.tqqn.lobbyhalloween.commands.LightningSpawnCommand;
+import com.tqqn.lobbyhalloween.tasks.RandomSpawnTask;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LobbyHalloween extends JavaPlugin {

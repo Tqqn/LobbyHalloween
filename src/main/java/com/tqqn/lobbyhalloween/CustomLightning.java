@@ -1,5 +1,6 @@
 package com.tqqn.lobbyhalloween;
 
+import com.tqqn.lobbyhalloween.tasks.CustomBatsTask;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
