@@ -1,6 +1,6 @@
 package com.tqqn.lobbyhalloween.scare;
 
-import com.tqqn.lobbyhalloween.NMSUtils;
+import com.tqqn.lobbyhalloween.Utils;
 import net.minecraft.server.v1_16_R3.*;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
@@ -13,7 +13,7 @@ public class CustomScareEnderman extends EntityEnderman {
     public CustomScareEnderman(EntityTypes<? extends EntityEnderman> entitytypes, World world, Location location, Player player) {
         super(entitytypes, world);
         this.setLocation(location.getX(), location.getY(), location.getZ(), location.getYaw(), 40);
-        this.setHeadRotation(NMSUtils.getAngle(new Vector(location.getX(), 0, location.getZ()), player.getLocation().toVector()));
+        this.setHeadRotation(Utils.getAngle(new Vector(location.getX(), 0, location.getZ()), player.getLocation().toVector()));
 
         CraftPlayer craftPlayer = (CraftPlayer) player;
 

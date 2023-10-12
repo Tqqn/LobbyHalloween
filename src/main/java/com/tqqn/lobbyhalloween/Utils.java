@@ -5,7 +5,7 @@ import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-public class NMSUtils {
+public class Utils {
 
     public static void sendPacket(Player player, Packet packet) {
         ((CraftPlayer)player).getHandle().playerConnection.sendPacket(packet);

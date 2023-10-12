@@ -1,6 +1,6 @@
 package com.tqqn.lobbyhalloween.scare;
 
-import com.tqqn.lobbyhalloween.NMSUtils;
+import com.tqqn.lobbyhalloween.Utils;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -45,7 +45,7 @@ public class ScareTask extends BukkitRunnable {
         if (time == 0) {
             cancel();
             player.removePotionEffect(PotionEffectType.BLINDNESS);
-            NMSUtils.sendEntityDestroyPacket(player, id);
+            Utils.sendEntityDestroyPacket(player, id);
             return;
         }
         time--;

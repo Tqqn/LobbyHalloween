@@ -21,8 +21,8 @@ public class CustomScare {
         Location endermanLocation = player.getLocation().add(player.getLocation().getDirection().multiply(1));
 
         CustomScareEnderman customScareEnderman = new CustomScareEnderman(EntityTypes.ENDERMAN, ((CraftWorld)player.getWorld()).getHandle(), endermanLocation, player);
-        NMSUtils.sendEntitySpawnPacket(player, customScareEnderman);
-        NMSUtils.sendEntityMetaDataPacket(player, customScareEnderman.getId(), customScareEnderman.getDataWatcher());
+        Utils.sendEntitySpawnPacket(player, customScareEnderman);
+        Utils.sendEntityMetaDataPacket(player, customScareEnderman.getId(), customScareEnderman.getDataWatcher());
 
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 100, 4));
 
