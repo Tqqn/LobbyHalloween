@@ -24,9 +24,6 @@ public class RandomSpawnTask extends BukkitRunnable {
             if (randomLocation.getChunk().isLoaded()) {
                 CustomLightning customLightning = new CustomLightning(randomLocation);
                 customLightning.spawnLightning();
-                System.out.println("spawned");
-            } else {
-                System.out.println("denied");
             }
             time = 20;
         }
