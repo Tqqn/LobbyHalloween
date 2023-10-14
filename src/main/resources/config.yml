@@ -1,3 +1,4 @@
+allow-lightning: false
 range-mode: true
 range:
 bat-name:

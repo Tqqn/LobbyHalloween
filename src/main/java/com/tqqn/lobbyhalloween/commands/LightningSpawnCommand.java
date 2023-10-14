@@ -1,8 +1,9 @@
 package com.tqqn.lobbyhalloween.commands;
 
 import com.tqqn.lobbyhalloween.CustomLightning;
+import com.tqqn.lobbyhalloween.utils.Messages;
+import com.tqqn.lobbyhalloween.utils.PluginUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,9 +18,10 @@ public class LightningSpawnCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if (args.length < 1 || Bukkit.getPlayer(args[0]) == null) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cThis player is not online!"));
+            player.sendMessage(PluginUtils.translateColor(Messages.PLAYER_NOT_ONLINE.getMessage()));
             return false;
         } else {
+            player.sendMessage(PluginUtils.translateColor("&cYou spawned lightning at &l" + Bukkit.getPlayer(args[0]).getName() + "'s &r&clocation!"));
             Location location = Bukkit.getPlayer(args[0]).getLocation();
 
             CustomLightning customLightning = new CustomLightning(location);

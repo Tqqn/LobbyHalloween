@@ -1,6 +1,7 @@
 package com.tqqn.lobbyhalloween.commands;
 
 import com.tqqn.lobbyhalloween.CustomScare;
+import com.tqqn.lobbyhalloween.utils.PluginUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -16,9 +17,12 @@ public class ScareCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if (args.length < 1 || Bukkit.getPlayer(args[0]) == null) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cThis player is not online!"));
+            player.sendMessage(PluginUtils.translateColor("&cThis player is not online!"));
             return false;
         } else {
+            if (Bukkit.getPlayer(args[0]).hasPermission("lobbyhalloween.scare.immum")) {
+                player.sendMessage(PluginUtils.translateColor("&cThis player is immum against scares."));
+            }
             CustomScare customScare = new CustomScare(Bukkit.getPlayer(args[0]));
             customScare.scare();
         }

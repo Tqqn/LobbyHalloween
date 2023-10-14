@@ -1,10 +1,8 @@
 package com.tqqn.lobbyhalloween;
 
-import com.tqqn.lobbyhalloween.scare.CustomScareEnderman;
 import com.tqqn.lobbyhalloween.scare.ScareTask;
-import net.minecraft.server.v1_16_R3.EntityTypes;
+import com.tqqn.lobbyhalloween.utils.Permissions;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -18,15 +16,16 @@ public class CustomScare {
     }
 
     public void scare() {
-        Location endermanLocation = player.getLocation().add(player.getLocation().getDirection().multiply(1));
+        if (player.hasPermission(Permissions.SCARE_IMMUM.getPermission())) return;
 
-        CustomScareEnderman customScareEnderman = new CustomScareEnderman(EntityTypes.ENDERMAN, ((CraftWorld)player.getWorld()).getHandle(), endermanLocation, player);
-        Utils.sendEntitySpawnPacket(player, customScareEnderman);
-        Utils.sendEntityMetaDataPacket(player, customScareEnderman.getId(), customScareEnderman.getDataWatcher());
+        Location endermanLocation = player.getLocation().add(player.getLocation().getDirection().multiply(1));
+        endermanLocation.setY(endermanLocation.getY()-0.5);
+
+        LobbyHalloween.getReflectionLayer().spawnCustomEnderman(endermanLocation, player);
 
         player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 100, 4));
 
-        ScareTask scareTask = new ScareTask(player, customScareEnderman.getId());
+        ScareTask scareTask = new ScareTask(player, LobbyHalloween.getReflectionLayer().getSpawnEntityId(player));
         scareTask.runTaskTimer(LobbyHalloween.getInstance(), 0, 5L);
     }
 }

@@ -19,6 +19,9 @@ public class CustomLightning {
         this.location = location;
     }
 
+    /**
+     * Spawns lightning, plays a enderman scream in a radius of 20 blocks and spawns 4 bats that will roam around for some seconds before disappearing.
+     */
     public void spawnLightning() {
         location.getWorld().strikeLightningEffect(location);
 
