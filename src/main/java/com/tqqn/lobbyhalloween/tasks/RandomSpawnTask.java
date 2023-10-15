@@ -10,11 +10,12 @@ import java.util.Random;
 
 public class RandomSpawnTask extends BukkitRunnable {
 
-    private int time = 20;
-    private final List<Location> lightningLocations;
+    private final int standardTime;
+    private int time;
 
-    public RandomSpawnTask(List<Location> lightningLocations) {
-        this.lightningLocations = lightningLocations;
+    public RandomSpawnTask(int standardTime) {
+        this.standardTime = standardTime;
+        time = standardTime;
     }
 
     @Override
@@ -23,21 +24,9 @@ public class RandomSpawnTask extends BukkitRunnable {
             return;
         }
         if (time == 0) {
-            Random random = new Random();
-            Location randomLocation = lightningLocations.get(random.nextInt(lightningLocations.size()));
-                if (LobbyHalloween.getInstance().getPluginConfig().getRangeMode()) {
-                    Location randomL = randomLocation.clone();
-                    int range = LobbyHalloween.getInstance().getPluginConfig().getLightningRange();
-
-                    randomL.add((random.nextBoolean() ? 1 : -1) * random.nextInt(range),
-                            (random.nextBoolean() ? 1 : -1) * random.nextInt(range),
-                            (random.nextBoolean() ? 1 : -1) * random.nextInt(range));
-                    randomL.setY(randomL.getWorld().getHighestBlockYAt(randomL));
-                    randomLocation = randomL;
-                }
-                CustomLightning customLightning = new CustomLightning(randomLocation);
-                customLightning.spawnLightning();
-            time = 20;
+            CustomLightning customLightning = new CustomLightning();
+            customLightning.spawnLightning();
+            time = standardTime;
         }
         time--;
     }

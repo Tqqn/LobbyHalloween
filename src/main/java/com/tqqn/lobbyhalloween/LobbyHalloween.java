@@ -27,7 +27,7 @@ public final class LobbyHalloween extends JavaPlugin {
         this.getCommand("scare").setExecutor(new ScareCommand());
         this.getCommand("lightning").setExecutor(new LightningToggleCommand(this));
 
-        randomSpawnTask = new RandomSpawnTask(pluginConfig.getLightningSpawnLocations());
+        randomSpawnTask = new RandomSpawnTask(pluginConfig.getLightningCooldown());
         randomSpawnTask.runTaskTimer(this, 0, 20L);
     }
 

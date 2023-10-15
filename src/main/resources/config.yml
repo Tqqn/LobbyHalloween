@@ -1,12 +1,5 @@
 allow-lightning: false
-range-mode: true
-range:
+lightning-cooldown: 30
 bat-name:
 bat-color1:
 bat-color2:
-lightning:
-  1:
-    world:
-    x:
-    y:
-    z:
